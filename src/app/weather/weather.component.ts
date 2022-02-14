@@ -1,3 +1,4 @@
+import { getLocaleDateFormat } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { OpenWeatherService } from '../open-weather.service';
@@ -10,6 +11,8 @@ import { OpenWeatherService } from '../open-weather.service';
 export class WeatherComponent implements OnInit {
 
   public weatherSearchForm !: FormGroup;
+  public weatherData: any;
+  public now: number = Date.now();
 
   constructor(
     private formBuilder: FormBuilder,
@@ -19,13 +22,20 @@ export class WeatherComponent implements OnInit {
     this.weatherSearchForm = this.formBuilder.group({
       location: ['']
     });
+
+    setInterval(() => {
+      this.now = Date.now();
+    }, 60000);
   }
 
   sendToOpenWeather(formValues: { location: any; }) {
     this.openWeatherService
       .getWeather(formValues.location)
-      .subscribe(data => console.log(data));
-    console.log(formValues);
+      .subscribe(data => this.weatherData = data);
+  }
+
+  getDateFrom(data: any) {
+    return (new Date(data * 1000) + '').slice(16, 21);
   }
 
 }

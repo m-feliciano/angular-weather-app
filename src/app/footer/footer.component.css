@@ -1,0 +1,11 @@
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: #f2f2f2;
+}
+
+.footer p {
+  color: #48484a;
+  margin-bottom: 0px;
+}

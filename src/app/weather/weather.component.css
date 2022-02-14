@@ -1,0 +1,35 @@
+.orange-text {
+  color: #eb6e4b;
+  font-weight: bold;
+  font-size: 45px;
+}
+
+.btn-color {
+  background-color: #48484a;
+  color: #f2f2f2;
+  box-shadow: none;
+}
+
+.btn-color:hover {
+  background-color: green;
+  box-shadow: none;
+}
+.weather-data {
+  background-color: #fff;
+  justify-content: center;
+}
+
+.weather-content {
+  font-size: 1rem;
+}
+.info {
+  padding: 10px;
+}
+.info > p {
+  margin-bottom: 0;
+}
+
+.btn-color:active {
+  background-color: darkgreen;
+  box-shadow: none;
+}

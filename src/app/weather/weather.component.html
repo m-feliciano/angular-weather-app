@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h3 class="text-center my-4">Search for Weather:</h3>
+      <h3 class="text-center my-4 orange-text">Search for Weather:</h3>
       <form
         [formGroup]="weatherSearchForm"
         (ngSubmit)="sendToOpenWeather(weatherSearchForm.value)"
@@ -12,19 +12,74 @@
             type="text"
             id="weatherLocation"
             aria-describedby="weatherLocation"
-            placeholder="Please input a Location"
+            placeholder="Enter a Location, ex: São Paulo"
             formControlName="location"
           />
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-success btn-md">
+          <button type="submit" class="btn btn-color btn-md">
             Search for the weather
           </button>
         </div>
       </form>
     </div>
-    <div class="col-md-6">
-      <h3 class="text-center my-4">Weather Details:</h3>
+    <div class="col-md-6 info">
+      <h3 class="text-center mt-4 weather-details">Weather Details:</h3>
+      <p class="text-center">
+        The date is {{ now | date: "EEE d, HH:mm zzzz" }}
+      </p>
+      <div class="weather-data mt-2" *ngIf="weatherData">
+        <div class="text-center weather-icon">
+          <img
+            [src]="
+              'https://openweathermap.org/img/wn/' +
+              weatherData.weather[0].icon +
+              '.png'
+            "
+          />
+        </div>
+        <div class="weather-content text-center">
+          <p>
+            <strong>LOCATION</strong>: {{ this.weatherData?.name }},
+            {{ this.weatherData?.sys.country }}
+          </p>
+          <p>
+            <strong>LAT/LON</strong>: {{ this.weatherData?.coord.lat }} /
+            {{ this.weatherData?.coord.lon }}
+          </p>
+          <p>
+            <strong>CURRENT CONDITIONS</strong>:
+            {{ this.weatherData?.weather[0].description }}
+          </p>
+          <p>
+            <strong>TEMPERATURE</strong>:
+            {{ this.weatherData?.main.temp }}&deg;C
+          </p>
+          <p>
+            <strong>FEELS LIKE</strong>:
+            {{ this.weatherData?.main.feels_like }}&deg;C
+          </p>
+          <p>
+            <strong> TODAY FORECAST</strong>:
+            {{ this.weatherData?.main.temp_max }}&deg;C /
+            {{ this.weatherData?.main.temp_min }}&deg;C
+          </p>
+          <p>
+            <strong>HUMIDITY</strong>: {{ this.weatherData?.main.humidity }}%
+          </p>
+          <p>
+            <strong>WIND</strong>: {{ this.weatherData?.wind.speed }}km/h /
+            <strong>DEG</strong>:
+            {{ this.weatherData?.wind.deg }}
+          </p>
+          <p>
+            <strong>SUNRINE</strong>:
+            {{ getDateFrom(this.weatherData?.sys.sunrise) }} /
+            <strong>SUNSET</strong>:
+            {{ getDateFrom(this.weatherData?.sys.sunset) }}
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </div>

@@ -5,12 +5,11 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OpenWeatherService {
 
-  _token: string = ""
+  _token: string = "9a44ac1e44105d364892553900a8e327"
 
   constructor(private http: HttpClient) { }
 
   getWeather(cityName: string) {
-    // api.openweathermap.org / data / 2.5 / weather ? q = { city name }, { state code } & appid={API key }
     return this.http.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${this._token}`
     );
