@@ -2,11 +2,28 @@
   background-color: #48484a;
 }
 
-.nav-main img {
-  margin: 0px 50px 0px 200px;
+.image {
+  margin: 0;
+  padding: 0;
 }
 
-.text-nav {
+nav p {
   color: #f2f2f2;
-  margin-bottom: 0;
+  margin: 0;
+}
+
+.logo {
+  margin: 0 50px 0 250px;
+}
+
+@media (max-width: 900px) {
+  nav p {
+    display: none;
+  }
+  .nav-main {
+    justify-content: center;
+  }
+  .logo {
+    margin: 0;
+  }
 }

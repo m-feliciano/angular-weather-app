@@ -22,13 +22,10 @@ export class WeatherComponent implements OnInit {
     this.weatherSearchForm = this.formBuilder.group({
       location: ['']
     });
-
-    setInterval(() => {
-      this.now = Date.now();
-    }, 60000);
+    setInterval(() => this.now = Date.now(), 60000);
   }
 
-  sendToOpenWeather(formValues: { location: any; }) {
+  getWeather(formValues: { location: any; }) {
     this.openWeatherService
       .getWeather(formValues.location)
       .subscribe(data => this.weatherData = data);

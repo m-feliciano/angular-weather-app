@@ -1,10 +1,10 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h3 class="text-center my-4 orange-text">Search for Weather:</h3>
+      <h3 class="text-center my-4 orange-text">Search for the Weather:</h3>
       <form
         [formGroup]="weatherSearchForm"
-        (ngSubmit)="sendToOpenWeather(weatherSearchForm.value)"
+        (ngSubmit)="getWeather(weatherSearchForm.value)"
       >
         <div class="form-group">
           <input
@@ -17,13 +17,11 @@
           />
         </div>
         <div class="text-center">
-          <button type="submit" class="btn btn-color btn-md">
-            Search for the weather
-          </button>
+          <button type="submit" class="btn btn-color btn-md">Search</button>
         </div>
       </form>
     </div>
-    <div class="col-md-6 info">
+    <div class="col-md-6 weather-info">
       <h3 class="text-center mt-4 weather-details">Weather Details:</h3>
       <p class="text-center">
         The date is {{ now | date: "EEE d, HH:mm zzzz" }}
@@ -38,7 +36,7 @@
             "
           />
         </div>
-        <div class="weather-content text-center">
+        <div class="weather-content pl-4">
           <p>
             <strong>LOCATION</strong>: {{ this.weatherData?.name }},
             {{ this.weatherData?.sys.country }}

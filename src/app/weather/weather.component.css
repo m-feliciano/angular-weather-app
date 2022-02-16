@@ -1,7 +1,7 @@
 .orange-text {
   color: #eb6e4b;
-  font-weight: bold;
-  font-size: 45px;
+  font-weight: 600;
+  font-size: 40px;
 }
 
 .btn-color {
@@ -14,19 +14,13 @@
   background-color: green;
   box-shadow: none;
 }
-.weather-data {
-  background-color: #fff;
-  justify-content: center;
+
+.weather-info > p {
+  margin-bottom: 0;
 }
 
 .weather-content {
-  font-size: 1rem;
-}
-.info {
-  padding: 10px;
-}
-.info > p {
-  margin-bottom: 0;
+  min-height: 500px;
 }
 
 .btn-color:active {

@@ -1,11 +1,17 @@
 .footer {
+  background-color: #f2f2f2;
   position: absolute;
   bottom: 0;
   width: 100%;
-  background-color: #f2f2f2;
 }
 
 .footer p {
   color: #48484a;
-  margin-bottom: 0px;
+  margin: 0;
+}
+
+.icons {
+  max-width: 20px;
+  margin: 0 20px;
+  align-self: center;
 }
